@@ -1,7 +1,7 @@
 
 from flask import Blueprint, jsonify, request
 
-from app.core.grafo import CIDADE, GRAFICO, VERTICE
+from app.core.grafo import CIDADE, GRAFICO, ARESTA
 from app.core.dijkstra import dijkstra
 
 api_bp = Blueprint("api", __name__, url_prefix="/api")
@@ -22,7 +22,7 @@ def arestas():
     #conexões do grafo para o front desenhar as arestas ao carregar o mapa
     dados = [
         {"origem": a, "destino": b, "peso": peso}
-        for a, b, peso in VERTICE
+        for a, b, peso in ARESTA
     ]
     return jsonify(dados)
 
