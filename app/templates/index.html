@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rotas GO/DF — Dijkstra</title>
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+</head>
+<body>
+  <header>
+    <h1>Rota mais curta entre cidades — GO/DF</h1>
+    <p>Algoritmo de Dijkstra sobre um grafo de distâncias reais entre cidades.</p>
+  </header>
+
+  <main>
+    <section id="painel-controle">
+      <form id="form-rota">
+        <label for="origem">Origem</label>
+        <select id="origem" required></select>
+
+        <label for="destino">Destino</label>
+        <select id="destino" required></select>
+
+        <button type="submit">Calcular rota</button>
+      </form>
+
+      <div id="legenda">
+        <p><span class="amostra amostra-nao-considerada"></span> Aresta do grafo (ainda não avaliada)</p>
+        <p><span class="amostra amostra-descartada"></span> Considerada pelo algoritmo, mas não usada</p>
+        <p><span class="amostra amostra-usada"></span> Faz parte do caminho mais curto</p>
+      </div>
+
+      <div id="resultado" class="oculto">
+        <h2>Resultado</h2>
+        <p id="resultado-caminho"></p>
+        <p id="resultado-distancia"></p>
+      </div>
+
+      <div id="erro" class="oculto"></div>
+    </section>
+
+    <section id="mapa-container">
+      <div id="mapa"></div>
+    </section>
+
+    <section id="log-container">
+      <h2>Log para o que o algoritmo está fazendo</h2>
+      <ol id="log-eventos"></ol>
+    </section>
+  </main>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
