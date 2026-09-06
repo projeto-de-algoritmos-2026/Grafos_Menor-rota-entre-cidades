@@ -46,13 +46,40 @@ def rota():
     if origem == destino:
         return jsonify({"erro": "Origem e destino não podem ser a mesma cidade."}), 400
 
-    caminho, distancia, ordem_visit = dijkstra(GRAFICO, origem, destino)
+    caminho, distancia, ordem_visit, eventos = dijkstra(GRAFICO, origem, destino)  
+
 
     if caminho is None:
         return jsonify({"erro": f"Não existe caminho entre {origem} e {destino}."}), 404
+
+
+  # arestas que fazem parte do caminho final 
+    arestas_do_caminho = {
+        frozenset((caminho[i], caminho[i + 1])) for i in range(len(caminho) - 1)
+    }
+
+    # arestas que o algoritmo chegou a examinar em algum momento (aceitas ou não)
+    arestas_consideradas = {
+        frozenset((evento["de"], evento["para"]))
+        for evento in eventos
+        if evento["tipo"] == "aresta"
+    }
+
+    arestas_status = []
+    for a, b, peso in ARESTA:
+        par = frozenset((a, b))
+        if par in arestas_do_caminho:
+            status = "usada"
+        elif par in arestas_consideradas:
+            status = "descartada"
+        else:
+            status = "nao_considerada"
+        arestas_status.append({"origem": a, "destino": b, "peso": peso, "status": status})
 
     return jsonify({
         "caminho": caminho,
         "distancia": distancia,
         "ordem_visita": ordem_visit,
+        "eventos": eventos,
+        "arestas_status": arestas_status,
     })
