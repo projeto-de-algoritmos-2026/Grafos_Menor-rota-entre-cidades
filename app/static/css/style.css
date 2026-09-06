@@ -1,0 +1,196 @@
+:root {
+  --cor-primaria: #1f6f43;
+  --cor-primaria-escura: #164f30;
+  --cor-erro: #b3261e;
+  --cor-fundo: #f5f6f5;
+  --cor-borda: #d9dcd9;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: var(--cor-fundo);
+  color: #222;
+}
+
+header {
+  padding: 1.25rem 1.5rem;
+  background: var(--cor-primaria);
+  color: white;
+}
+
+header h1 {
+  margin: 0 0 0.25rem 0;
+  font-size: 1.4rem;
+}
+
+header p {
+  margin: 0;
+  opacity: 0.9;
+  font-size: 0.9rem;
+}
+
+main {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+#painel-controle {
+  flex: 1 1 280px;
+  max-width: 340px;
+  background: white;
+  border: 1px solid var(--cor-borda);
+  border-radius: 8px;
+  padding: 1rem;
+  height: fit-content;
+}
+
+#form-rota {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+#form-rota label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-top: 0.5rem;
+}
+
+#form-rota select {
+  padding: 0.5rem;
+  border: 1px solid var(--cor-borda);
+  border-radius: 6px;
+  font-size: 0.95rem;
+}
+
+#form-rota button {
+  margin-top: 1rem;
+  padding: 0.6rem;
+  background: var(--cor-primaria);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+#form-rota button:hover {
+  background: var(--cor-primaria-escura);
+}
+
+#resultado {
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--cor-borda);
+}
+
+#resultado h2 {
+  font-size: 1rem;
+  margin: 0 0 0.5rem 0;
+}
+
+#erro {
+  margin-top: 1rem;
+  padding: 0.6rem;
+  background: #fdecea;
+  border: 1px solid var(--cor-erro);
+  color: var(--cor-erro);
+  border-radius: 6px;
+  font-size: 0.9rem;
+}
+
+#legenda {
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--cor-borda);
+  font-size: 0.8rem;
+}
+
+#legenda p {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0.4rem 0;
+}
+
+.amostra {
+  display: inline-block;
+  width: 22px;
+  height: 4px;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.amostra-nao-considerada {
+  background: #b9c0b9;
+}
+
+.amostra-descartada {
+  background: #e0a53a;
+}
+
+.amostra-usada {
+  background: var(--cor-primaria);
+  height: 5px;
+}
+
+.oculto {
+  display: none;
+}
+
+#mapa-container {
+  flex: 3 1 500px;
+}
+
+#mapa {
+  width: 100%;
+  height: 70vh;
+  border-radius: 8px;
+  border: 1px solid var(--cor-borda);
+}
+
+.marcador-visitado {
+  filter: hue-rotate(120deg) saturate(1.6);
+}
+
+#log-container {
+  flex: 1 1 100%;
+  background: white;
+  border: 1px solid var(--cor-borda);
+  border-radius: 8px;
+  padding: 1rem;
+  max-height: 260px;
+  overflow-y: auto;
+}
+
+#log-container h2 {
+  font-size: 1rem;
+  margin: 0 0 0.5rem 0;
+}
+
+#log-eventos {
+  margin: 0;
+  padding-left: 1.2rem;
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+#log-eventos li.evento-visita {
+  font-weight: 600;
+  margin-top: 0.4rem;
+}
+
+#log-eventos li.evento-aceito {
+  color: var(--cor-primaria-escura);
+}
+
+#log-eventos li.evento-descartado {
+  color: #8a7245;
+}
