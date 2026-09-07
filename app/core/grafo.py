@@ -11,6 +11,7 @@ CIDADE = {
     "Valparaíso de Goiás":    {"lat": -16.0653, "lon": -47.9761},
     "Formosa":                {"lat": -15.5372, "lon": -47.3346},
     "Caldas Novas":           {"lat": -17.7444, "lon": -48.6250},
+    "Vianópolis":             {"lat": -16.75, "lon": -48.51},
 }
 
 #lista das arestas com os pesos, distâncias em km, entre as cidades
@@ -20,11 +21,11 @@ ARESTA = [
     ("Goiânia", "Trindade", 25),
     ("Goiânia", "Caldas Novas", 165),
     ("Anápolis", "Brasília", 130),
-    ("Anápolis", "Formosa", 150),
-    ("Brasília", "Luziânia", 60),
     ("Brasília", "Valparaíso de Goiás", 45),
     ("Brasília", "Formosa", 80),
     ("Luziânia", "Valparaíso de Goiás", 15),
+    ("Vianópolis", "Goiânia", 90),
+    ("Vianópolis", "Luziânia", 101),
 ]
 
 # Monta a lista de adjacência a partir dos nós e arestas
