@@ -3,6 +3,8 @@
 Número da Lista: Dupla 27<br>
 Conteúdo da Disciplina: Algoritmo de Dijkstra<br>
 
+Link vídeo apresentação: https://youtu.be/3C3arIsGwpM
+
 ## Alunos
 
 |Matrícula | Aluno |
